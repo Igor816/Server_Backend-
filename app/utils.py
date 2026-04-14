@@ -1,8 +1,8 @@
-def config_parser(config_path):
-    with open(config_path, 'r') as conf_files:
-        config = dict()
-        lines = conf_files.readlines()
-        for line in lines:
-            k,v = line.split(' = ')
-            config[k] = v
-        return config
+def config_parser(config_path):#Парсинг config.txt, парсит файл с данными и выдает нужные данные
+    with open(config_path, 'r') as conf_files:# Происходит чтение файла
+        config = dict()#Создание словаря, кудаа будут помещенны данные, формат ключ-значение
+        lines = conf_files.readlines()# чтение файла линейно
+        for line in lines:# Проходим циклом по словам а не по буквам как это происхходит в строках
+            k,v = line.split(' = ')# Разделение полученные данные по знаку равенство
+            config[k] = v.split('\n')[0]# Раздеение строки с переносом на другую строку следующих значений
+        return config # Возврат результата
