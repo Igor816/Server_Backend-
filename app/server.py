@@ -48,3 +48,12 @@ if __name__ == "__main__":
     config = config_parser(args.config)#Считываем конфиг файл
     server_host = config['SERVER_HOST']
     server_port = config['SERVER_PORT']
+
+    server = Server(
+        port = server_port,
+        host = server_host
+    )
+    
+    server.run_server()
+
+    
