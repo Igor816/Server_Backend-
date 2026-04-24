@@ -16,7 +16,6 @@ class Server:
 
         self.app.add_url_rule('/shutdown', view_func=self.shutdown)#Выключает сервер для удобства.Тест
         self.app.add_url_rule('/home', view_func=self.get_home) 
-        self.app.add_url_rule('/', view_func=self.get_home)
         self.app.add_url_rule('/', view_func=self.run_server)
 
     def run_server(self):#start servers
@@ -32,7 +31,6 @@ class Server:
         terminate_func = request.environ.get('werkzeug.server.shutdown')#Получение фукции 
         if terminate_func:
             terminate_func()
-
 
 
     def get_home(self):
@@ -54,4 +52,4 @@ if __name__ == "__main__":
         host = server_host
     )
     
-    server.run_server()
+    server.run_server() 
